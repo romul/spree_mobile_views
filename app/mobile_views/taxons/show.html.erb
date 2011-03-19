@@ -1,0 +1,9 @@
+<% if @taxon.children.present? %>
+  <ul data-role="listview">
+    <% @taxon.children.each do |taxon| %>
+      <li><%= link_to taxon.name, seo_url(taxon) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <%= render :partial => "shared/products" %>
+<% end %>

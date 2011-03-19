@@ -1,0 +1,47 @@
+<%= form_for :order, :url => populate_orders_url do |f| %>
+<%= hook :inside_product_cart_form do %>
+
+  <% if product_price(@product) %>
+    <%= hook :product_price do %>
+      <p class="prices">
+        <%= t("price") %>: 
+        <span class="price selling"><strong><%= product_price(@product) %></strong></span>
+      </p>
+    <% end %>
+  <% end %>
+
+  <% if @product.has_variants? %>
+    <div data-role="fieldcontain" id="product-variants">
+      <h4><%= t('variants') %></h4>
+      <fieldset data-role="controlgroup">
+        <%  has_checked = false
+        @product.variants.active.each_with_index do |v,index|
+          next if v.option_values.empty? || (!v.in_stock && !Spree::Config[:show_zero_stock_products])
+          checked = !has_checked && (v.in_stock || Spree::Config[:allow_backorders])
+          has_checked = true if checked %>
+         
+          <%= radio_button_tag "products[#{@product.id}]", v.id, checked, :disabled => !v.in_stock && !Spree::Config[:allow_backorders] %>
+          <label for="products_<%= [@product.id, v.id].join('_') %>">  
+            <%= variant_options v %>
+            
+            <% if variant_price_diff v %>
+              <span class="price diff"><%= variant_price_diff v %></span>
+            <% end %>
+          </label>
+        <% end%>
+      </fieldset>
+    </div>
+  <% end%>
+  <% if @product.has_stock? || Spree::Config[:allow_backorders] %>
+    <%= text_field_tag (@product.has_variants? ? :quantity : "variants[#{@product.master.id}]"),
+      1, :class => "title", :size => 3 %>
+    &nbsp;
+    <button type='submit' data-icon="plus">
+      <%= t('add_to_cart') %>
+    </button>
+  <% else %>
+    <%= content_tag('strong', t('out_of_stock')) %>
+  <% end %>
+
+<% end %>
+<% end %>

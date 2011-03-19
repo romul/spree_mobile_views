@@ -1,0 +1,28 @@
+<div data-role="content">
+  <table>
+    <tr>
+      <td id="main-image">
+        <%= render 'image' %>
+      </td>
+      <td>
+        <%= hook :cart_form do %>
+          <div id="cart-form">
+            <%= render 'cart_form' %>
+          </div>
+        <% end %>    
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <div id="product-description">
+          <%= hook :product_description do %>
+            <%= product_description(@product) rescue t("product_has_no_description") %>
+          <% end %>
+          <%= hook :product_properties do %>
+            <%= render 'properties' %>
+          <% end %>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,9 @@
+<ul data-role="listview">
+  <% @products.each do |product| %>
+  <li>
+    <%= product_image(product)%>
+	  <h3><%= link_to product.name, product %></h3>
+	  <p><%= truncate(product.description, :length => 70, :omission => "...") %></p>
+  </li>
+  <% end %>
+</ul>
