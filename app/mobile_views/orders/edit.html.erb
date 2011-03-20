@@ -23,18 +23,21 @@
           </div>
           <div class="ui-block-b">
             <%= link_to t("checkout"), checkout_path, "data-role" => "button", "data-icon" => "gear" %>
-          <div>
+          </div>
+          <div class="ui-block-a">
+            <%= link_to t("continue_shopping"), root_path, "data-role" => "button", "data-icon" => "back" %>
+          </div>
         </fieldset>
-        <%= link_to t("continue_shopping"), products_path, "data-role" => "button", "data-icon" => "back" %>
-
       <% end %>
     <% end %>
   <% end %>
   
   <%= form_tag empty_cart_path, :method => :put do %>
-    <p id="clear_cart_link">
+  <fieldset class="ui-grid-a">
+    <div class="ui-block-a">
       <input type="submit" value="<%= t('empty_cart') %>" data-icon="delete" />
-    </p>
+    </div>
+  </fieldset>  
   <% end %>
 
 <% end %>

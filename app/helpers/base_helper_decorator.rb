@@ -6,7 +6,11 @@ Spree::BaseHelper.module_eval do
     else
       text = "#{text}: (#{current_order.item_count}) #{order_price(current_order)}"
     end
-    link_to text, cart_path
+    link_to text, cart_path, :class => css_class(cart_path)
+  end
+  
+  def css_class(path)
+    current_page?(path) ? "ui-btn-active" : ""
   end
 
 end
