@@ -1,1 +1,5 @@
-<%= render :partial => "shared/products" %>
+<% if current_page?('/') %>
+  <%= render :template => "taxons/index" %>
+<% else %>
+  <%= render :partial => "shared/products" %>
+<% end %>

@@ -1,8 +1,8 @@
-<% @taxonomies.each do |taxonomy| %>
+<% get_taxonomies.each do |taxonomy| %>
   <ul data-role="listview" data-inset="true">
-	  <li data-role="list-divider"><%= taxonomy.name %></li>
-	  <% taxonomy.root.children.each do |taxon| %>
-	  <li><%= link_to taxon.name, seo_url(taxon) %></li>
-	  <% end %>
+    <li data-role="list-divider"><%= taxonomy.name %></li>
+    <% taxonomy.root.children.each do |taxon| %>
+    <li><%= link_to taxon.name, seo_url(taxon) %></li>
+    <% end %>
   </ul>
 <% end %>
