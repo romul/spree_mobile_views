@@ -1,17 +1,15 @@
 #main-image { width: 260px; }
 #cart-form input { max-width: 250px; }
-#cart-detail { width: 100%; }
+#cart-detail .ui-li-desc { white-space: normal; }
 dt { font-weight: bold; }
 #line_items input { width: 3em; }
 #line_items td { padding: 3px; background: #EEE; }
 #updatecart #subtotal { text-align: right; margin-right: 0.5em; }
 .min-width-480px label.ui-input-text { width: 60%; }
+.min-width-480px .ui-input-search { width: 90%; }
 
 /* Margins */
 form { margin: 0; }
 #line_items p { margin: 0; }
 #footer { margin: 0em 0.5em; }
 .ui-listview-inset { margin: 1em 0.5em; }
-#existing-customer, #new-customer { margin: 0em 0.5em 2em 0.5em; }
-div[data-url="/user/password/new"] .content { margin: 0em 0.5em 2em 0.5em; }
-

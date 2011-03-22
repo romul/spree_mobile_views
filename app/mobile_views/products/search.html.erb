@@ -1,0 +1,11 @@
+<%= form_tag products_url, :method => :get do %>
+<div class="ui-grid-b">
+  <div data-role="fieldcontain">
+    <%= text_field_tag :keywords, params[:keywords], 'type' => 'search' %>
+  </div>
+  <div class="ui-block-a">&nbsp;</div>
+  <div class="ui-block-b">
+    <%= submit_tag t(:search), :name => nil %>
+  </div>
+</div>
+<% end %>

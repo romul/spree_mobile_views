@@ -15,6 +15,7 @@
         <div data-role="navbar">
           <ul>
             <li><%= link_to t(:home), root_path, :class => css_class(root_path) %></li>
+            <li><%= link_to t(:search), search_path, :class => css_class(search_path) %></li>
             <% if current_user %>
               <li><%= link_to t('my_account'), account_path, :class => css_class(account_path) %></li>
               <li><%= link_to t('logout'), destroy_user_session_path %></li>
@@ -25,7 +26,7 @@
           </ul>
         </div>
       </div>
-      <div class="content">
+      <div data-role="content">
         <%= yield %>
       </div>
       <div data-role="footer">
