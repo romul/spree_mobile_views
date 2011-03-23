@@ -1,0 +1,27 @@
+<fieldset id="payment">
+  <legend><%= t("payment_information") %></legend>
+  <%= hook :checkout_payment_step, {:form => form} do %>
+    <div data-role="fieldcontain">
+      <fieldset data-role="controlgroup">
+      <% @order.available_payment_methods.each do |method| %>
+        <%= form.label "payments_attributes__payment_method_id_#{method.id}", t(method.name, :scope => :payment_methods, :default => method.name) %>
+        <%= radio_button_tag "order[payments_attributes][][payment_method_id]", method.id, method == @order.payment_method %>
+      <% end %>
+      </fieldset>
+    </div>
+    <div id="payment-methods">
+      <% @order.available_payment_methods.each do |method| %>
+        <fieldset>
+          <%= render "checkout/payment/#{method.method_type}", :payment_method => method %>
+        </fieldset>
+        </li>
+      <% end %>
+    </div>
+    <br style='clear:both;' />
+    <%= hook :coupon_code_field, {:form => form} %>
+  <% end %>
+</fieldset>
+
+<div class="form-buttons">
+  <input type="submit" class="continue button primary" value="<%=t("save_and_continue") %>" />
+</div>

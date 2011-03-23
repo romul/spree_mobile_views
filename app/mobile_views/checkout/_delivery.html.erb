@@ -1,0 +1,24 @@
+<fieldset id='shipping_method'>
+  <legend><%= t("shipping_method") %></legend>
+  <div data-role="fieldcontain">
+    <fieldset data-role="controlgroup">
+        <% @order.rate_hash.each do |shipping_method| %>
+          <%= form.label(['shipping_method_id', shipping_method[:id].to_s].join('_'),
+          "#{shipping_method[:name]} #{number_to_currency(shipping_method[:cost])}") %>
+          <%= radio_button(:order, :shipping_method_id, shipping_method[:id]) %>
+        <% end %>
+      </p>
+    </fieldset>
+  </div>
+  <% if Spree::Config[:shipping_instructions] && @order.rate_hash.present? %>
+    <div data-role="fieldcontain">
+      <%= form.label :special_instructions, t("shipping_instructions") %><br />
+      <%= form.text_area :special_instructions, :cols => 40, :rows => 7 %>
+    </div>
+  <% end %>
+</fieldset>
+
+<div class="form-buttons">
+  <input type="submit" value="<%=t("save_and_continue") %>"/>
+</div>
+

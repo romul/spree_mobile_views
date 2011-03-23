@@ -7,6 +7,28 @@ dt { font-weight: bold; }
 #updatecart #subtotal { text-align: right; margin-right: 0.5em; }
 .min-width-480px label.ui-input-text { width: 60%; }
 .min-width-480px .ui-input-search { width: 90%; }
+#checkout fieldset { margin-top: 2em; }
+#checkout fieldset legend { font-weight: bold; }
+#billing input, #shipping input { width: 100%; }
+span.req { color: #D11; }
+
+ol.progress-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  line-height: 1em;
+  font-size: 12px;
+}
+
+ol.progress-steps li {
+  float: left;
+  padding: 6px;
+}
+
+ol.progress-steps li.current-first, ol.progress-steps li.current {
+  color: white;
+  background-image: url(../images/step-progress/current-first.gif);
+}
 
 /* Margins */
 form { margin: 0; }
