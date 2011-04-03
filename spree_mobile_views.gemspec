@@ -1,9 +1,9 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_mobile_views'
-  s.version     = '0.50.0.beta'
-  s.summary     = 'Add gem summary here'
-  s.description = 'Add (optional) gem description here'
+  s.version     = '0.50.0'
+  s.summary     = 'Adds support of mobile devices to Spree stores'
+  s.description = 'Works through jQuery Mobile'
   s.required_ruby_version = '>= 1.8.7'
 
   s.author            = 'Roman Smirnov'
@@ -18,5 +18,5 @@ Gem::Specification.new do |s|
 
   s.has_rdoc = true
 
-  s.add_dependency('spree_core', '>= 0.40.99')
+  s.add_dependency('spree_core', '>= 0.50.0')
 end
