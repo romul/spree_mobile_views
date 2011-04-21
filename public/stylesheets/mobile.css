@@ -34,3 +34,5 @@ form { margin: 0; }
 #line_items p { margin: 0; }
 #footer { margin: 0em 0.5em; }
 .ui-listview-inset { margin: 1em 0.5em; }
+.ui-content h3 { margin: 0 0 1.5em 0; }
+.ui-content div.pagination { margin-top: 2em; }
