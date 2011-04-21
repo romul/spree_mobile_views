@@ -12,6 +12,7 @@
     <div data-role="page">
       <div data-role="header">
         <h1><%= title %></h1>
+        <a href="?mobile=0" data-icon="gear" data-ajax="false" class="ui-btn-right"><%= t(:full_site)%></a>
         <div data-role="navbar">
           <ul>
             <li><%= link_to t(:home), root_path, :class => css_class(root_path) %></li>
