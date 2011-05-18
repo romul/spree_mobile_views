@@ -11,7 +11,7 @@
     <li>
       <%= product_image(product)%>
 	    <h3><%= link_to product.name, product %></h3>
-	    <p><%= truncate(product.description, :length => 70, :omission => "...") %></p>
+	    <p><%= product.description ? truncate(strip_tags(product.description).mb_chars, :length => 70) : t("product_has_no_description") %></p>
     </li>
     <% end %>
   </ul>
