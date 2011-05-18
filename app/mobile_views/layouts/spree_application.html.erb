@@ -3,6 +3,13 @@
     <title><%= title %></title>
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css" />
     <script src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
+    <script type="text/javascript">
+    //<![CDATA[
+      $(document).bind("mobileinit", function(){
+        $.mobile.ajaxEnabled = false;
+      });
+    //]]>
+    </script>
     <script src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"></script>
     <%= javascript_include_tag 'rails' %>
     <%= stylesheet_link_tag 'mobile' %>
@@ -11,18 +18,18 @@
   <body>
     <div data-role="page">
       <div data-role="header">
+        <a href="/" id='home_link' data-icon="home" data-ajax="false" class="ui-btn-left">&nbsp;</a>
         <h1><%= title %></h1>
         <a href="?mobile=0" data-icon="gear" data-ajax="false" class="ui-btn-right"><%= t(:full_site)%></a>
         <div data-role="navbar">
           <ul>
-            <li><%= link_to t(:home), root_path, :class => css_class(root_path) %></li>
-            <li><%= link_to t(:search), search_path, :class => css_class(search_path) %></li>
             <% if current_user %>
               <li><%= link_to t('my_account'), account_path, :class => css_class(account_path) %></li>
               <li><%= link_to t('logout'), destroy_user_session_path %></li>
             <% else %>
               <li><%= link_to t('log_in'), login_path, :class => css_class(login_path) %></li>
             <% end %>
+            <li><%= link_to t(:search), search_path, :class => css_class(search_path) %></li>
             <li><%= link_to_cart %></li>
           </ul>
         </div>

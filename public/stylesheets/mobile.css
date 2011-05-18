@@ -29,6 +29,9 @@ ol.progress-steps li.current-first, ol.progress-steps li.current {
   background-image: url(../images/step-progress/current-first.gif);
 }
 
+.ui-header .ui-title .ui-link { color: white; text-decoration: none; }
+.ui-header #home_link .ui-btn-inner { padding-left: 15px; }
+
 /* Margins */
 form { margin: 0; }
 #line_items p { margin: 0; }
@@ -36,3 +39,4 @@ form { margin: 0; }
 .ui-listview-inset { margin: 1em 0.5em; }
 .ui-content h3 { margin: 0 0 1.5em 0; }
 .ui-content div.pagination { margin-top: 2em; }
+.ui-header .ui-title { margin-left: 3em; margin-right: 8em; text-align: left; }
