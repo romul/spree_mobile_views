@@ -19,7 +19,7 @@
         </div>
         <fieldset class="ui-grid-a">
           <div class="ui-block-a">
-            <%= order_form.submit t('update'), "data-role" => "button", "data-icon" => "refresh" %>
+            <input type="submit" value="<%= t('update') %>" data-icon="refresh" />
           </div>
           <div class="ui-block-b">
             <%= link_to t("checkout"), checkout_path, "data-role" => "button", "data-icon" => "gear" %>

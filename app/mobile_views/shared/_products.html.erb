@@ -9,9 +9,11 @@
   <ul data-role="listview">
     <% @products.each do |product| %>
     <li>
-      <%= product_image(product)%>
-	    <h3><%= link_to product.name, product %></h3>
-	    <p><%= product.description ? truncate(strip_tags(product.description).mb_chars, :length => 70) : t("product_has_no_description") %></p>
+      <a href="<%= product_path(product) %>">
+        <%= product_image(product) %>
+	      <h3><%= product.name %></h3>
+	      <p><%= product.description ? truncate(strip_tags(product.description).mb_chars, :length => 70) : t("product_has_no_description") %></p>
+	    </a>
     </li>
     <% end %>
   </ul>

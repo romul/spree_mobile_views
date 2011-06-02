@@ -58,8 +58,11 @@
         <%= yield %>
       </div>
       <div data-role="footer">
-        <%= render 'shared/footer'%>
+        <div id="footer-left" data-hook="footer_left">
+          <p><%= t("powered_by") %> <a href="http://spreecommerce.com/">Spree</a></p>
+        </div>
+        <div id="footer-right" data-hook="footer_right"></div>
       </div>
-    </div>
+      <%= render 'shared/google_analytics' %>
   </body>
 </html>

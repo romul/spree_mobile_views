@@ -35,11 +35,9 @@
   
   <% if @product.has_stock? || Spree::Config[:allow_backorders] %>
     <fieldset class="ui-grid-a">
-      <div class="ui-block-a">
-        <%= text_field_tag (@product.has_variants? ? :quantity : "variants[#{@product.master.id}]"), 1, :class => "title", :size => 3 %>
-      </div>
-      <div class="ui-block-a">
-        <button type='submit' data-icon="plus">
+      <div>
+        <%= text_field_tag((@product.has_variants? ? :quantity : "variants[#{@product.master.id}]"), 1, :maxlength => 5, :style => "width:5em", 'data-inline' => "true") %>
+        <button type='submit' data-inline="true" data-icon="plus">
           <%= t('add_to_cart') %>
         </button>       
       </div>

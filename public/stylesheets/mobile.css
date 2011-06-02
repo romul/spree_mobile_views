@@ -3,13 +3,14 @@
 dt { font-weight: bold; }
 #line_items input { width: 3em; }
 #line_items td { padding: 3px; background: #EEE; }
-#updatecart #subtotal { text-align: right; margin-right: 0.5em; }
+#updatecart #subtotal { text-align: right; margin: 2em 0.5em 0 0; }
 .min-width-480px label.ui-input-text { width: 60%; }
 .min-width-480px .ui-input-search { width: 90%; }
 #checkout fieldset { margin-top: 2em; }
 #checkout fieldset legend { font-weight: bold; }
 #billing input, #shipping input { width: 100%; }
 span.req { color: #D11; }
+legend { font-size: 12pt; }
 
 ol.progress-steps {
   list-style: none;
@@ -29,8 +30,20 @@ ol.progress-steps li.current-first, ol.progress-steps li.current {
   background-image: url(../images/step-progress/current-first.gif);
 }
 
+div#checkout-summary {
+  border: #EEF 2px solid;
+  background: #FFE;
+  padding: 1em;
+  margin-top: 1em;
+}
+
 .ui-header .ui-title .ui-link { color: white; text-decoration: none; }
 .ui-header #home_link .ui-btn-inner { padding-left: 15px; }
+
+.odd  { background: #FFE; }
+.even { background: #EEF; }
+
+dl#product-properties dd { padding-bottom: 0.5em; }
 
 /* Margins */
 form { margin: 0; }
