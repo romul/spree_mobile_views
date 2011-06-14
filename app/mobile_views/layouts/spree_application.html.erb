@@ -35,8 +35,10 @@
         </div>
         
         <% [:notice, :error].each do |message_type| %>
-				  <% if flash[message_type] %>
-				    <script>
+          <% if flash[message_type] %>
+          <script type="text/javascript">
+          //<![CDATA[
+            $(document).ready(function() {
               $("<div class='ui-loader ui-overlay-shadow <%= (message_type == :error) ? 'ui-body-a' : 'ui-body-e' %> ui-corner-all'><h1><%= flash[message_type] %></h1></div>")
               .css({ "display": "block", "opacity": 0.96, "top": $(window).scrollTop() + 100 })
               .appendTo( $.mobile.pageContainer )
@@ -44,13 +46,16 @@
               .fadeOut( 400, function(){
                 $(this).remove();
               });
-				    </script>
-				    <noscript>
-				      <div data-role="navbar">
-      				  <%= flash[message_type] %>
-				      </div>				    
-				    </noscript>
-				  <% end %>        
+            });
+          //]]>
+          </script>
+          
+          <noscript>
+            <div data-role="navbar">
+              <%= flash[message_type] %>
+            </div>
+          </noscript>
+          <% end %>        
         <% end %>
         
       </div>
