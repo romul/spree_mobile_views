@@ -12,5 +12,8 @@ Spree::BaseHelper.module_eval do
   def css_class(path)
     current_page?(path) ? "ui-btn-active" : ""
   end
-
+  
+  def copyright
+    "<p>#{t(:powered_by)} <a href=\"http://spreecommerce.com/\">Spree</a></p>".html_safe
+  end
 end

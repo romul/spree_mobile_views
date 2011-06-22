@@ -1,8 +1,8 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css" />
-    <script src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.css" />
+    <script src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
     <script type="text/javascript">
     //<![CDATA[
       $(document).bind("mobileinit", function(){
@@ -10,7 +10,7 @@
       });
     //]]>
     </script>
-    <script src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.js"></script>
     <%= javascript_include_tag 'rails' %>
     <%= stylesheet_link_tag 'mobile' %>
     <%= csrf_meta_tag %>
@@ -64,7 +64,7 @@
       </div>
       <div data-role="footer">
         <div id="footer-left" data-hook="footer_left">
-          <p><%= t("powered_by") %> <a href="http://spreecommerce.com/">Spree</a></p>
+          <%= copyright %>
         </div>
         <div id="footer-right" data-hook="footer_right"></div>
       </div>
