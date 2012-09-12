@@ -1,13 +1,13 @@
 <%= form_for :order, :url => populate_orders_path do |f| %>
-<%= hook :inside_product_cart_form do %>
+<div id="inside-product-cart-form" data-hook="inside_product_cart_form" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 
-  <% if product_price(@product) %>
-    <%= hook :product_price do %>
+  <% if @product.price %>
+    <div data-hook="product_price">
       <p class="prices">
         <%= t("price") %>: 
-        <span class="price selling"><strong><%= product_price(@product) %></strong></span>
+        <span class="price selling"><strong><%= @product.price %></strong></span>
       </p>
-    <% end %>
+    </div>
   <% end %>
 
   <% if @product.has_variants? %>
@@ -46,5 +46,5 @@
     <%= content_tag('strong', t('out_of_stock')) %>
   <% end %>
 
-<% end %>
+</div>
 <% end %>

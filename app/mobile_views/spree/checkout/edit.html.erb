@@ -2,12 +2,12 @@
   <h1><%= t("checkout")%></h1>
   <%= checkout_progress %>
   <br clear="left" />
-  <%= render "shared/error_messages", :target => @order %>
-  <%= hook :checkout_summary_box do %>
+  <%= render "spree/shared/error_messages", :target => @order %>
+  <div id="checkout-summary" data-hook="checkout_summary_box">
     <div id="checkout-summary">
       <%= render 'summary', :order => @order %>
     </div>
-  <% end %>
+  </div>
   <%= form_for @order, :url => update_checkout_path(@order.state), :html => { :id => "checkout_form_#{@order.state}" } do |form| %>
     <%= render @order.state, :form => form %>
   <% end %>

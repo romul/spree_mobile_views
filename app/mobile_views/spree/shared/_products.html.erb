@@ -1,0 +1,29 @@
+<% logger.info "got to point 1" %>
+<%
+  paginated_products = @searcher.retrieve_products if params.key?(:keywords)
+  paginated_products ||= @products
+%>
+<% if @products.empty? %>
+  <%= t(:no_products_found) %>
+<% elsif params.key?(:keywords) %>
+  <h3><%= t(:search_results, :keywords => h(params[:keywords])) %></h3>
+<% end %>
+
+<% if @products.any? %>
+  <ul data-role="listview">
+    <% @products.each do |product| %>
+      <% if Spree::Config[:show_zero_stock_products] || product.has_stock? %>
+      <li>
+        <a href="<%= product_path(product) %>">
+          <%= product_image(product) %>
+  	      <h3><%= product.name %></h3>
+  	      <p><%= product.description ? truncate(strip_tags(product.description).mb_chars, :length => 70) : t("product_has_no_description") %></p>
+  	    </a>
+      </li>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
+<% if paginated_products.respond_to?(:num_pages) %>
+  <%= paginate paginated_products %>
+<% end %>

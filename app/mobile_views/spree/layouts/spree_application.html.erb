@@ -14,6 +14,7 @@
     <%= javascript_include_tag 'rails' %>
     <%= stylesheet_link_tag 'mobile' %>
     <%= csrf_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
     <div data-role="page">
@@ -29,7 +30,7 @@
             <% else %>
               <li><%= link_to t('log_in'), login_path, :class => css_class(login_path) %></li>
             <% end %>
-            <li><%= link_to t(:search), search_path, :class => css_class(search_path) %></li>
+            <li><%= link_to t(:search_path), search_path, :class => css_class(search_path) %></li>
             <li><%= link_to_cart %></li>
           </ul>
         </div>
@@ -68,6 +69,6 @@
         </div>
         <div id="footer-right" data-hook="footer_right"></div>
       </div>
-      <%= render 'shared/google_analytics' %>
+      <%= render 'spree/shared/google_analytics' %>
   </body>
 </html>
