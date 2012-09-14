@@ -15,7 +15,7 @@ namespace :spree_mobile_views do
 
     desc "Copies all assets (NOTE: This will be obsolete with Rails 3.1)"
     task :assets do
-      source = File.join(File.dirname(__FILE__), '..', '..', 'public')
+      source = File.join(File.dirname(__FILE__), '..', '..','app','assets')
       destination = File.join(Rails.root, 'app', 'assets')
       puts "INFO: Mirroring assets from #{source} to #{destination}"
       Spree::Core::FileUtilz.mirror_files(source, destination)
