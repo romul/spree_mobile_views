@@ -8,22 +8,22 @@
     </tr>
     <tr>
       <td>
-        <%= hook :cart_form do %>
+        <div id="cart-form" data-hook="cart_form">
           <div id="cart-form">
-            <%= render 'cart_form' %>
+            <%= render :partial => 'cart_form' %>
           </div>
-        <% end %>    
+        </div>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <div id="product-description">
-          <%= hook :product_description do %>
+          <div data-hook="product_description">
             <%= product_description(@product) rescue t("product_has_no_description") %>
-          <% end %>
-          <%= hook :product_properties do %>
+          </div>
+          <div data-hook="product_properties">
             <%= render 'properties' %>
-          <% end %>
+          </div>
         </div>
       </td>
     </tr>

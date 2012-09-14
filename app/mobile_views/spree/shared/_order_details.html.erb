@@ -1,0 +1,45 @@
+<table class="index" data-role="listview">
+  <tbody id='line-items'>
+    <tr class="ui-bar-b" data-hook="order_details_line_items_headers">
+        <th><%= t('item_description') %></th>
+        <th class="price"><%= t('price') %></th>
+        <th class="qty"><%= t('qty') %></th>
+        <th class="total"><span><%= t('total') %></span></th>
+    </tr>
+
+    <% @order.line_items.each do |item| %>
+      <tr data-hook="order_details_line_item_row">
+        <td width="300"><%=item.variant.product.name%> <%= "(" + variant_options(item.variant) + ")" unless item.variant .option_values.empty? %></td>
+        <td class="price"><%= money item.price %></td>
+        <td class="qty"><%=item.quantity%></td>
+        <td class="total"><span><%= money(item.price * item.quantity)%></span></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot data-hook="order_details_subtotal">
+    <tbody id='subtotal'>
+      <tr class="total" id="subtotal-row">
+        <td colspan="3"><b><%= t('subtotal') %>:</b></td>
+        <td class="total"><span><%= money @order.item_total %></span></td>
+      </tr>
+    </tbody>
+  </tfoot>
+  <tfoot id="price-adjustments" data-hook="order_details_price_adjustments">
+    <tbody id="order-charges">
+      <% @order.price_adjustment_totals.keys.each do |key| %>
+        <tr class="total">
+          <td colspan="3"><strong><%= key %></strong></td>
+          <td class="total"><span><%= money @order.price_adjustment_totals[key] %></span></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </tfoot>
+  <tfoot data-hook="order_details_total">
+    <tbody id='order-total'>
+      <tr class="total">
+        <td colspan="3"><b><%= t('order_total') %>:</b></td>
+        <td class="total"><span id="order_total"><%= money @order.total %></span></td>
+      </tr>
+    </tbody>
+  </tfoot>
+</table>

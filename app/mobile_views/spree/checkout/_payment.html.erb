@@ -1,6 +1,6 @@
 <fieldset id="payment">
   <legend><%= t("payment_information") %></legend>
-  <%= hook :checkout_payment_step, {:form => form} do %>
+  <div data-hook="checkout_payment_step">
     <div data-role="fieldcontain">
       <fieldset data-role="controlgroup">
       <% @order.available_payment_methods.each do |method| %>
@@ -12,14 +12,14 @@
     <div id="payment-methods">
       <% @order.available_payment_methods.each do |method| %>
         <fieldset>
-          <%= render "checkout/payment/#{method.method_type}", :payment_method => method %>
+          <%= render "spree/checkout/payment/#{method.method_type}", :payment_method => method %>
         </fieldset>
         </li>
       <% end %>
     </div>
     <br style='clear:both;' />
-    <%= hook :coupon_code_field, {:form => form} %>
-  <% end %>
+    <div data-hook="coupon_code_field" data-hook></div>
+  </div>
 </fieldset>
 
 <div class="form-buttons">

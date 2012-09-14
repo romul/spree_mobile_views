@@ -1,0 +1,21 @@
+<tr class="<%= cycle('', 'alt') %>">
+  <td class="cart-item-description" data-hook="cart_item_description">
+    <p><%= link_to variant.product.name,  product_path(variant.product) %></p>
+    <p><%= variant.options_text %></p>
+    <p><%= truncate(variant.product.description, :length => 70, :omission => "...") %></p>
+  </td>
+  <td class="cart-item-price" data-hook="cart_item_price">
+    <%= money line_item.price %>
+  </td>
+  <td class="cart-item-quantity" data-hook="cart_item_quantity">
+    <%= item_form.text_field :quantity, :size => 3, :class => "line_item_quantity" %>
+  </td>
+
+  <td class="cart-item-total" data-hook="cart_item_total">
+    <%= money(line_item.price * line_item.quantity) unless line_item.quantity.nil? %>
+  </td>
+  <td class="cart-item-delete" data-hook="cart_item_delete" style='display:none'>
+    <%= link_to(image_tag('/images/admin/icons/delete.png'), '#', :class => 'delete') %>
+  </td>
+
+</tr>

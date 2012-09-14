@@ -1,0 +1,5 @@
+<% if current_page?('/') && params[:keywords].nil? %>
+  <%= render :template => "spree/taxons/index" %>
+<% else %>
+  <%= render :partial => "spree/shared/products" %>
+<% end %>
